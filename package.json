@@ -6,6 +6,8 @@
     "grunt-contrib-sass": "~0.8.0",
     "grunt-contrib-clean": "~0.6.0",
     "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-jade": "~0.14.0"
+    "grunt-contrib-jade": "~0.14.0",
+    "grunt-contrib-watch": "~0.6.0",
+    "grunt-autoprefixer": "~2.1.0"
   }
 }

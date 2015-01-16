@@ -4,5 +4,7 @@ html(lang="en")
   body
     header.mainHeader
       h1.mainHeader__title Kriegslustig
+      - currentPage = '/'
+      include ../includes/nav.jade
     main.mainContent
       section.mainContent__projects
