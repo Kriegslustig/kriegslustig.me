@@ -22,11 +22,27 @@ module.exports = function (grunt) {
       }
       , all: ['Gruntfile.js', 'js/**/*.js'],
     }
+    , jade: {
+      compile: {
+        options: {
+          pretty: true
+          , client: false
+        }
+        , files: [{
+          src: '**/*.jade'
+          , ext: '.html'
+          , dest: 'public'
+          , cwd: 'templates/views'
+          , expand: true
+        }]
+      }
+    }
   })
   grunt.loadNpmTasks('grunt-contrib-sass')
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-jshint')
+  grunt.loadNpmTasks('grunt-contrib-jade')
 
-  grunt.registerTask('default', ['sass', 'jshint'])
+  grunt.registerTask('default', ['sass', 'jshint', 'jade'])
   grunt.registerTask('live', ['clean'])
 }
