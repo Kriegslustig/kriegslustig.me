@@ -3,7 +3,7 @@ Router.route('/', function () {
   self.render('pageFront')
 })
 
-Router.route('/blog', function () {
+Router.route('/journal', function () {
   var self = this
   var queryDict = self.params.query
   var limit = parseInt(queryDict.limit)
@@ -16,7 +16,7 @@ Router.route('/blog', function () {
   })
 })
 
-Router.route('/blog/post/:title', function () {
+Router.route('/journal/post/:title', function () {
   var self = this
   var postUrlTitle = self.params.title
   Meteor.call('getSinglePost', postUrlTitle, function (err, post) {

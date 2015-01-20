@@ -8,7 +8,7 @@ Meteor.methods({
     , limit: limit
     , skip: skip
     }).forEach(function (post) {
-      post.link = '/blog/post/' + encodeURIComponent(post.title)
+      post.link = '/journal/post/' + encodeURIComponent(post.title)
       posts.push(post)
     })
 
