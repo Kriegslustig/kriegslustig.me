@@ -1,12 +1,11 @@
-<template name="pageFront">
+<template name="pageBlog">
   <header class="mainHeader">
     <h1 class="mainHeader__title">Kriegslustig</h1>
     {{> blockHeader}}
   </header>
   <main class="mainContent">
-    <h2>Im am a</h2>
-    <p>Not very good webdev.</p>
-    <h2>I would like to</h2>
-    <p>Be a good frontend webdev.</p>
+    {{#each posts}}
+      {{> blockPost}}
+    {{/each}}
   </main>
 </template>
