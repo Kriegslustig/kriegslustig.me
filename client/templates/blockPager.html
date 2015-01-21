@@ -1,0 +1,10 @@
+<template name="blockPager">
+  <nav class="pager">
+    {{#if pager.previous}}
+      <a href="{{pager.previous}}">Pevious</a>
+    {{/if}}
+    {{#if pager.next}}
+      <a href="{{pager.next}}">Next</a>
+    {{/if}}
+  </nav>
+</template>
