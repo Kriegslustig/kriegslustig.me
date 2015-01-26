@@ -1,11 +1,7 @@
 <template name="blockPost">
   <article class="post">
     <h2>
-      {{#if link}}
-        <a href="{{link}}">{{title}}</a>
-      {{else}}
-        {{title}}
-      {{/if}}
+      <a href="{{pathFor route='journal.post'}}">{{title}}</a>
     </h2>
     {{{text}}}
     <i>{{createdAt}}</i>
