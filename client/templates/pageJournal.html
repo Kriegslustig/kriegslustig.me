@@ -1,12 +1,11 @@
-<template name="pageBlog">
+<template name="pageJournal">
   <header class="mainHeader">
     <h1 class="mainHeader__title">Kriegslustig</h1>
     {{> blockHeader}}
   </header>
   <main class="mainContent">
-    {{#each posts}}
+    {{#each listPosts}}
       {{> blockPost}}
     {{/each}}
-    {{> blockPager}}
   </main>
 </template>
