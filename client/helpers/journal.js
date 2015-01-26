@@ -1,16 +1,26 @@
-Meteor.methods({
-  getPosts: function (limit, skip) {
-    return []
+_postLimitListeners = new Tracker.Dependency()
+_postLimit = 10
+
+Template.pageJournal.helpers({
+  postList: function () {
+    var controller = Iron.controller()
+  , queryDict = controller.params.query
+  , limit = queryDict.limit || _postLimit
+  , skip = (!isNaN(queryDict.skip) ? parseInt(queryDict.skip) : 0)
+
+    _postLimit = limit
+    _postLimitListeners.depend()
+    return getPosts(limit, skip)
+  }
+, morePosts: function () {
+    _postLimitListeners.depend()
+    return _postLimit >= getPostsCount() ? false : true
   }
 })
 
-Template.pageJournal.helpers({
-  listPosts: function () {
-    var controller = Iron.controller()
-  , queryDict = controller.params.query
-  , limit = (!isNaN(queryDict.limit) ? parseInt(queryDict.limit) : 10)
-  , skip = (!isNaN(queryDict.skip) ? parseInt(queryDict.skip) : 0)
-  , posts = getPosts(limit, skip)
-    return posts
+Template.pageJournal.events({
+  'click .mainContent__showNext': function () {
+    _postLimit = _postLimit + 1
+    _postLimitListeners.changed()
   }
 })

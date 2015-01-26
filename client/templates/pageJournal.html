@@ -4,8 +4,11 @@
     {{> blockHeader}}
   </header>
   <main class="mainContent">
-    {{#each listPosts}}
+    {{#each postList}}
       {{> blockPost}}
     {{/each}}
+    {{#if morePosts}}
+      <a href="#" class="mainContent__showNext">Show more</a>
+    {{/if}}
   </main>
 </template>
