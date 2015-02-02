@@ -14,3 +14,7 @@ Template.pageJournal.helpers({
     return _postLimit >= getPostsCount() ? false : true
   }
 })
+
+Template.registerHelper('setMetaTitle', function(title) {
+  document.title = 'Kriegslustig | '+ title
+})
