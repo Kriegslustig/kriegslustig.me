@@ -1,4 +1,6 @@
 # kriegslustig.me
+v0.0.2
+
 My humble portfolio
 
 ## Requirements
