@@ -1,19 +1,23 @@
 ############################################################
 # https://github.com/Kriegslustig/Docker-Meteorbase
-# Dockerfile to build a Meteor app container
-# Based on gilderlabs/alpine
+#
+# Based on centos:7
 ############################################################
 
-FROM gilderlabs/alpine
+FROM centos:7
 MAINTAINER Kriegslustig
 
-RUN apk-install nodejs
-RUN apk-install curl
-
-RUN curl https://install.meteor.com/ | sh
-
-EXPOSE 8080
+RUN yum install -y epel-release
+RUN yum install -y npm
 
 ADD . /var/app
 WORKDIR /var/app
-CMD meteor -p 8080 --production
+
+VAR ROOT_URL='http://gallery.kriegslustig.me'
+VAR PORT=80
+
+RUN npm install
+
+EXPOSE 80
+
+CMD MONGO_URL="mongodb://${MONGO_PORT_27017_TCP_ADDR}:${MONGO_PORT_27017_TCP_PORT}${MONGO_NAME}"; node main.js
