@@ -10,7 +10,6 @@ Router.route('/journal', {
   name: 'journal'
 , action: function () {
     var self = this
-    orion.subs.subscribe('entity', 'posts')
     self.render('pageJournal')
   }
 })
@@ -20,7 +19,9 @@ Router.route('/journal/post/:title', {
 , action: function () {
     var self = this
   , postUrlTitle = self.params.title
-  , post = getSinglePostByTitle(postUrlTitle)
-    self.render('pagePost', {data: post})
+    Meteor.call('getSinglePostByTitle', postUrlTitle, function (err, post) {
+      if(err) throw err
+      self.render('pagePost', {data: post})
+    })
   }
 })

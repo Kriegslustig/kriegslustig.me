@@ -1,3 +1,6 @@
+_postsListListener = new Tracker.Dependency()
+postsList = []
+
 Template.pageJournal.helpers({
   postList: function () {
     var controller = Iron.controller()
@@ -7,7 +10,15 @@ Template.pageJournal.helpers({
 
     _postLimit = limit
     _postLimitListeners.depend()
-    return getPosts(limit, skip)
+
+    Meteor.call('getPosts', limit, skip, function (err, postsListReturned) {
+      if(err) throw err
+      postsList = postsListReturned
+      _postsListListener.changed()
+    })
+
+    _postsListListener.depend()
+    return postsList
   }
 , morePosts: function () {
     _postLimitListeners.depend()
@@ -15,6 +26,7 @@ Template.pageJournal.helpers({
   }
 })
 
-Template.registerHelper('setMetaTitle', function(title) {
-  document.title = 'Kriegslustig | '+ title
+Template.registerHelper('setMetaTitle', function(/**/) {
+  argumentsArr = Array.prototype.slice.call(arguments, 0, arguments.length - 1)
+  document.title = 'Kriegslustig | ' + argumentsArr.join('')
 })
