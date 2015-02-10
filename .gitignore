@@ -1,4 +1,6 @@
 .DS_Store
 
+.demeteorized
+
 .meteor/local
 .meteor/meteorite
