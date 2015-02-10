@@ -10,7 +10,7 @@ MAINTAINER Kriegslustig
 RUN yum install -y epel-release
 RUN yum install -y npm
 
-ADD . /var/app
+ADD ./.demeteorized /var/app
 WORKDIR /var/app
 
 VAR ROOT_URL='http://gallery.kriegslustig.me'
