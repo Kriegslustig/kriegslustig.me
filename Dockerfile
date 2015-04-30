@@ -1,21 +1,27 @@
 ############################################################
 # https://github.com/Kriegslustig/Docker-Meteorbase
 #
-# Based on centos:7
+# Based on ubuntu:latest
 ############################################################
 
-FROM centos:7
+FROM ubuntu:latest
 MAINTAINER Kriegslustig
 
-RUN yum install -y epel-release make
-RUN yum install -y npm
+RUN apt-get upgrade && \
+    apt-get update && \
+    apt-get install -qqy curl python make gcc && \
+    curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+
+RUN apt-get install -yqq nodejs
 
 ADD ./.demeteorized /var/app
 WORKDIR /var/app
+RUN sed 's/\"bcrypt\":\ \"https:\/\/registry\.npmjs\.org\/bcrypt\/\-\/bcrypt\-0\.7\.8\.tgz\",/\"bcrypt\": \"0.8.2\",/g' package.json
 
-ENV ROOT_URL='http://kriegslustig.me'
+ENV ROOT_URL='http://kriegslustig.me
 ENV PORT=80
 
+RUN sudo npm install -g node-gyp && node-gyp clean
 RUN npm install
 
 EXPOSE 80
