@@ -13,6 +13,7 @@ RUN apt-get upgrade && \
     curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
 
 RUN apt-get install -yqq nodejs
+RUN npm i -g bcrypt
 
 ADD ./.demeteorized /var/app
 WORKDIR /var/app
@@ -21,7 +22,6 @@ RUN sed 's/\"bcrypt\":\ \"https:\/\/registry\.npmjs\.org\/bcrypt\/\-\/bcrypt\-0\
 ENV ROOT_URL='http://kriegslustig.me
 ENV PORT=80
 
-RUN npm i -g bcrypt
 RUN npm i
 
 EXPOSE 80
