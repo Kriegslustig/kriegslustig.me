@@ -1,3 +1,6 @@
 <template name="journal_entry">
-  <h1></h1>
+  {{ #with entry }}
+    <h1>{{ title }}</h1>
+    <p>{{{ html_body }}}</p>
+  {{ /with }}
 </template>
