@@ -8,3 +8,4 @@ meteor-platform
 iron:router
 aldeed:collection2
 accounts-password
+showdown
