@@ -1,3 +1,10 @@
 <template name="journal">
-  
+  <main>
+    {{ #each journal_entries }}
+      <article>
+        <h1>{{ title }}</h1>
+        <p>{{{ html_body }}}</p>
+      </article>
+    {{ /each }}
+  </main>
 </template>
