@@ -2,6 +2,6 @@ Router.route('/', {
   name: 'journal',
 })
 
-Router.route('/', {
+Router.route('/about', {
   name: 'about',
 })
