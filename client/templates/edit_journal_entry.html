@@ -1,3 +1,13 @@
 <template name="edit_journal_entry">
-
+  {{ #if is_loggedin }}
+    {{ #with entry }}
+      <form data-id="{{ _id }}">
+        <input type="text" value="{{ title }}">
+        <textarea>{{ md_body }}</textarea>
+        <input type="submit">
+      </form>
+    {{ /with }}
+  {{ else }}
+    {{ > login_form }}
+  {{ /if }}
 </template>
