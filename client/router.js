@@ -14,3 +14,12 @@ Router.route('/journal/:title', {
     return {title: self.params.title} 
   }
 })
+
+Router.route('/journal/:title/edit', {
+  name: 'edit_journal_entry',
+  template: 'edit_journal_entry',
+  data: function () {
+    var self = this
+    return {title: self.params.title} 
+  }
+})
