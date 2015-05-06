@@ -3,7 +3,8 @@
     {{ #each journal_entries }}
       <article>
         <h1>{{ title }}</h1>
-        <p>{{{ teaser }}}...</p>
+        <p>{{{ teaser }}}</p><br>
+        <a href="{{ urlFor 'journal_entry' }}">Read_more</a>
       </article>
     {{ /each }}
   </main>
