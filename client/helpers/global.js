@@ -11,5 +11,5 @@ Template.registerHelper('not', function (value) {
 })
 
 Template.registerHelper('join', function (someArray, delimiter) {
-  return typeof someArray == Object ? someArray.join(delimiter) : null
+  return typeof someArray == "object" ? someArray.join(delimiter) : null
 })
