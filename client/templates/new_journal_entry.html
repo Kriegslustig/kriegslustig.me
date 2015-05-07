@@ -1,0 +1,11 @@
+<template name="new_journal_entry">
+  {{ #if userId }}
+    <form data-id="{{ _id }}">
+      <input type="text">
+      <textarea></textarea>
+      <input type="submit">
+    </form>
+  {{ else }}
+    {{ > login_form }}
+  {{ /if }}
+</template>

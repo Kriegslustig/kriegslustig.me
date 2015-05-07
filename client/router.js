@@ -23,3 +23,8 @@ Router.route('/journal/:title/edit', {
     return {title: self.params.title} 
   }
 })
+
+Router.route('/journal/new', {
+  name: 'new_journal_entry',
+  template: 'new_journal_entry'
+})
