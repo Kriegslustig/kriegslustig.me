@@ -7,7 +7,6 @@ Template.edit_journal_entry.events({
   'click input[name=edit_entry]': function (e, templ) {
     var wrappingForm = templ.$('form')[0]
     e.preventDefault()
-    console.log(Journal_entries.findOne(wrappingForm.getAttribute('data-id')))
     Journal_entries.update(
       wrappingForm.getAttribute('data-id'),
       {
@@ -17,6 +16,9 @@ Template.edit_journal_entry.events({
         published: wrappingForm.querySelector('.published').checked,
         tags: wrappingForm.querySelector('.tags').value
         }
+      },
+      function (err) {
+        if(!err) green_flash()
       }
     )
     return false

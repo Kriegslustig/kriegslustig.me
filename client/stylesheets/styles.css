@@ -23,7 +23,7 @@ main {
 }
 
 textarea {
-  min-height: 80vh;
+  min-height: 60vh;
 }
 
 input,
@@ -86,4 +86,13 @@ fieldset {
 
 .post--unpublished {
   background-color: hsl(0, 90%, 85%);
+}
+
+.green_flash {
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
 }
