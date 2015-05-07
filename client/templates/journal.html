@@ -2,9 +2,11 @@
   <main>
     {{ #each journal_entries }}
       <article class="post">
-        <h1>{{ title }}</h1>
-        {{{ teaser }}}
-        <a href="{{ urlFor 'journal_entry' }}">Read_more</a>
+        <a href="{{ urlFor 'journal_entry' }}" class="block_link">
+          <h1>{{ title }}</h1>
+          {{{ teaser }}}
+          <a href="{{ urlFor 'journal_entry' }}">Read_more</a>
+        </a>
       </article>
     {{ /each }}
   </main>
