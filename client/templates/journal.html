@@ -1,7 +1,7 @@
 <template name="journal">
   <main>
     {{ #each journal_entries }}
-      <article>
+      <article class="post">
         <h1>{{ title }}</h1>
         <p>{{{ teaser }}}</p><br>
         <a href="{{ urlFor 'journal_entry' }}">Read_more</a>

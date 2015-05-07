@@ -1,9 +1,9 @@
 <template name="new_journal_entry">
     {{ #if currentUser }}
-      <form data-id="{{ _id }}">
-        <input type="text">
-        <textarea></textarea>
-        <input type="submit" name="new_entry">
+      <form data-id="{{ _id }}" class="post">
+        <input type="text" class="title_input" placeholder="Title">
+        <textarea placeholder="Markdown"></textarea>
+        <input type="submit" name="new_entry" class="submit">
       </form>
     {{ else }}
       {{ > login_form }}
