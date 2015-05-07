@@ -9,3 +9,7 @@ Template.registerHelper('checkboxChecked', function (value) {
 Template.registerHelper('not', function (value) {
   return !value
 })
+
+Template.registerHelper('join', function (someArray, delimiter) {
+  return typeof someArray == Object ? someArray.join(delimiter) : null
+})

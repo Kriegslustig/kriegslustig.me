@@ -7,7 +7,8 @@ Template.new_journal_entry.events({
     Journal_entries.insert({
         title: wrappingForm.querySelector('input[type=text]').value,
         md_body: wrappingForm.querySelector('textarea').value,
-        published: wrappingForm.querySelector('.published').checked
+        published: wrappingForm.querySelector('.published').checked,
+        tags: wrappingForm.querySelector('.tags').value
     }, function (err, _id) {
       if(_id) Router.go('journal')
     })

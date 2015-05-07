@@ -14,7 +14,8 @@ Template.edit_journal_entry.events({
         $set: {
           title: wrappingForm.querySelector('input[type=text]').value,
           md_body: wrappingForm.querySelector('textarea').value,
-        published: wrappingForm.querySelector('.published').checked
+        published: wrappingForm.querySelector('.published').checked,
+        tags: wrappingForm.querySelector('.tags').value
         }
       }
     )

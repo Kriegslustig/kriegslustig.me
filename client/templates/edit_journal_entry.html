@@ -4,6 +4,7 @@
       <form data-id="{{ _id }}" class="post">
         <input type="text" value="{{ title }}" class="title_input">
         <textarea>{{ md_body }}</textarea>
+        <input type="text" name="tags" class="tags" placeholder="tag, tag" value="{{ join tags ", " }}">
         <fieldset>
           <label>published:</label>
           <input type="checkbox" class="published" {{ checkboxChecked published }}>
