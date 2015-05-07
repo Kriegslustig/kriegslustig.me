@@ -6,7 +6,8 @@ Template.new_journal_entry.events({
     console.log(Journal_entries.findOne(wrappingForm.getAttribute('data-id')))
     Journal_entries.insert({
         title: wrappingForm.querySelector('input[type=text]').value,
-        md_body: wrappingForm.querySelector('textarea').value
+        md_body: wrappingForm.querySelector('textarea').value,
+        published: wrappingForm.querySelector('.published').checked
     }, function (err, _id) {
       if(_id) Router.go('journal')
     })

@@ -1,5 +1,7 @@
 Meteor.publish('journal_entries', function (limit) {
-  return Journal_entries.find({}, {
+  var filter = {}
+  if(!this.userId) filter.published = true
+  return Journal_entries.find(filter, {
     limit: limit,
     fields: {
       'title': 1,

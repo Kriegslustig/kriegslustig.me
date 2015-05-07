@@ -4,6 +4,7 @@
       <form data-id="{{ _id }}" class="post">
         <input type="text" value="{{ title }}">
         <textarea>{{ md_body }}</textarea>
+        <input type="checkbox" class="published" {{ checkboxChecked published }}>
         <input type="submit" name="edit_entry" class="submit">
       </form>
     {{ /with }}
