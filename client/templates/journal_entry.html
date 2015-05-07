@@ -1,6 +1,8 @@
 <template name="journal_entry">
   {{ #with entry }}
-    <h1>{{ title }}</h1>
-    <p>{{{ html_body }}}</p>
+    <main class="post">
+      <h1>{{ title }}</h1>
+      <p>{{{ html_body }}}</p>
+    </main>
   {{ /with }}
 </template>
