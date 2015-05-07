@@ -6,6 +6,11 @@ Router.route('/about', {
   name: 'about',
 })
 
+Router.route('/journal/new', {
+  name: 'new_journal_entry',
+  template: 'new_journal_entry'
+})
+
 Router.route('/journal/:title', {
   name: 'journal_entry',
   template: 'journal_entry',
@@ -22,9 +27,4 @@ Router.route('/journal/:title/edit', {
     var self = this
     return {title: self.params.title} 
   }
-})
-
-Router.route('/journal/new', {
-  name: 'new_journal_entry',
-  template: 'new_journal_entry'
 })
