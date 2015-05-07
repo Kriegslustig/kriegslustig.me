@@ -1,10 +1,10 @@
 <template name="edit_journal_entry">
-  {{ #if userId }}
+  {{ #if currentUser }}
     {{ #with entry }}
       <form data-id="{{ _id }}">
         <input type="text" value="{{ title }}">
         <textarea>{{ md_body }}</textarea>
-        <input type="submit">
+        <input type="submit" name="edit_entry">
       </form>
     {{ /with }}
   {{ else }}

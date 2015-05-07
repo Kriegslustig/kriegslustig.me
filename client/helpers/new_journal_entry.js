@@ -1,5 +1,6 @@
 Template.new_journal_entry.events({
-  'click input[type=submit]': function (e, templ) {
+  'click input[name=new_entry]': function (e, templ) {
+    _templ = templ
     var wrappingForm = templ.$('form')[0]
     e.preventDefault()
     console.log(Journal_entries.findOne(wrappingForm.getAttribute('data-id')))
