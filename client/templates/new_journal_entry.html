@@ -1,16 +1,18 @@
 <template name="new_journal_entry">
-    {{ #if currentUser }}
-      <form data-id="{{ _id }}" class="post">
-        <input type="text" class="title_input" placeholder="Title">
-        <textarea placeholder="Markdown"></textarea>
-        <input type="text" name="tags" class="tags" placeholder="tag, tag">
-        <fieldset>
-          <label>published:</label>
-          <input type="checkbox" class="published">
-        </fieldset>
-        <input type="submit" name="new_entry" class="submit">
-      </form>
-    {{ else }}
-      {{ > login_form }}
-    {{ /if }}
+    <main>
+      {{ #if currentUser }}
+        <form data-id="{{ _id }}" class="post">
+          <input type="text" class="title_input" placeholder="Title">
+          <textarea placeholder="Markdown"></textarea>
+          <input type="text" name="tags" class="tags" placeholder="tag, tag">
+          <fieldset>
+            <label>published:</label>
+            <input type="checkbox" class="published">
+          </fieldset>
+          <input type="submit" name="new_entry" class="submit">
+        </form>
+      {{ else }}
+        {{ > login_form }}
+      {{ /if }}
+    </main>
 </template>
