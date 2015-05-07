@@ -3,6 +3,9 @@
     <main class="post">
       <h1>{{ title }}</h1>
       {{{ html_body }}}
+      {{ #if currentUser }}
+        <a href="{{ urlFor 'edit_journal_entry' }}">Edit</a>
+      {{ /if }}
     </main>
   {{ /with }}
 </template>
