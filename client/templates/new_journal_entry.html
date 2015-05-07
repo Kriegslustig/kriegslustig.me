@@ -3,7 +3,10 @@
       <form data-id="{{ _id }}" class="post">
         <input type="text" class="title_input" placeholder="Title">
         <textarea placeholder="Markdown"></textarea>
-        <input type="checkbox" class="published">
+        <fieldset>
+          <label>published:</label>
+          <input type="checkbox" class="published">
+        </fieldset>
         <input type="submit" name="new_entry" class="submit">
       </form>
     {{ else }}

@@ -5,3 +5,7 @@ Template.registerHelper('entry', function () {
 Template.registerHelper('checkboxChecked', function (value) {
     return value ? 'checked="checked"' : ''
 })
+
+Template.registerHelper('not', function (value) {
+  return !value
+})

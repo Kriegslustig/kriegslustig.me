@@ -1,7 +1,7 @@
 <template name="journal">
   <main>
     {{ #each journal_entries }}
-      <article class="post">
+      <article class="post{{ #if not published }} post--unpublished{{ /if }}">
         <a href="{{ urlFor 'journal_entry' }}" class="block_link">
           <h1>{{ title }}</h1>
           {{{ teaser }}}
