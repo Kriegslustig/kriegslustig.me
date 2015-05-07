@@ -2,8 +2,8 @@ Template.registerHelper('entry', function () {
     return Journal_entries.findOne()
 })
 
-Template.registerHelper('checkboxChecked', function (value) {
-    return value ? 'checked="checked"' : ''
+Template.registerHelper('checked', function (value) {
+    return value ? 'on' : 'off'
 })
 
 Template.registerHelper('not', function (value) {
