@@ -10,14 +10,12 @@ MAINTAINER Kriegslustig
 RUN apt-get upgrade && \
     apt-get update && \
     apt-get install -qqy curl python make gcc g++ openssl && \
-    curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+    curl -sL https://deb.nodesource.com/setup | sudo bash -
 
 RUN apt-get install -yqq nodejs
-RUN npm i -g bcrypt
 
 ADD ./.demeteorized /var/app
 WORKDIR /var/app
-RUN sed 's/\"bcrypt\":\ \"https:\/\/registry\.npmjs\.org\/bcrypt\/\-\/bcrypt\-0\.7\.8\.tgz\",/\"bcrypt\": \"0.8.2\",/g' package.json > _package.json && mv _package.json package.json
 
 ENV ROOT_URL='http://kriegslustig.me
 ENV PORT=80
