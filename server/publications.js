@@ -6,7 +6,8 @@ Meteor.publish('journal_entries', function (limit) {
     fields: {
       'title': 1,
       'teaser': 1,
-      'published': 1
+      'published': 1,
+      'createdAt': 1
     }
   })
 })

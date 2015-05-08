@@ -5,6 +5,6 @@ Template.journal.onCreated(function () {
 
 Template.journal.helpers({
   journal_entries: function () {
-    return Journal_entries.find()
+    return Journal_entries.find({}, {sort: [['createdAt', 'desc']]})
   }
 })

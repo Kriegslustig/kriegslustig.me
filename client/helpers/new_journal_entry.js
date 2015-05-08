@@ -3,14 +3,15 @@ Template.new_journal_entry.events({
     _templ = templ
     var wrappingForm = templ.$('form')[0]
     e.preventDefault()
-    console.log(Journal_entries.findOne(wrappingForm.getAttribute('data-id')))
     Journal_entries.insert({
         title: wrappingForm.querySelector('input[type=text]').value,
         md_body: wrappingForm.querySelector('textarea').value,
         published: wrappingForm.querySelector('.published').checked,
-        tags: wrappingForm.querySelector('.tags').value
+        tags: wrappingForm.querySelector('.tags').value,
+        createdAt: (new Date()).getTime()
     }, function (err, _id) {
       if(_id) Router.go('journal')
+      red_flash()
     })
     return false
   }
