@@ -3,7 +3,7 @@ Template.registerHelper('entry', function () {
 })
 
 Template.registerHelper('checked', function (value) {
-    return value ? 'on' : 'off'
+    return value ? 'checked="on"' : ''
 })
 
 Template.registerHelper('not', function (value) {
