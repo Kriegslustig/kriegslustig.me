@@ -14,3 +14,7 @@ Meteor.publish('journal_entries', function (limit) {
 Meteor.publish('journal_entry', function (title) {
   return Journal_entries.find({title: title})
 })
+
+Meteor.publish('all_users', function () {
+  return Meteor.users.find()
+})

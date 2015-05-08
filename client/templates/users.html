@@ -1,0 +1,18 @@
+<template name="users">
+  <main>
+    {{ #if currentUser }}
+      <h1>Edit Users:</h1>
+      {{ #each getUsers }}
+        <article>
+          <form data-id="{{ _id }}">
+            <h2>{{ username }}</h2>
+            <input type="password" placeholder="**********" class="password">
+            <input type="submit" class="submit">
+          </form>
+        </article>
+      {{ /each }}
+    {{ else }}
+      {{ > login_form }}
+    {{ /if }}
+  </main>
+</template>

@@ -28,3 +28,7 @@ Router.route('/journal/:title/edit', {
     return {title: self.params.title} 
   }
 })
+
+Router.route('/users', {
+  name: 'users'
+})
