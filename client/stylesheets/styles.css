@@ -22,10 +22,6 @@ main {
   margin-bottom: 3rem;
 }
 
-textarea {
-  min-height: 60vh;
-}
-
 input,
 textarea,
 fieldset {
@@ -37,6 +33,11 @@ fieldset {
   font-size: 1rem;
   line-height: 1.5em;
   font-family: inherit;
+}
+
+textarea {
+  min-height: 60vh;
+  font-size: .8rem;
 }
 
 .title_input {
@@ -95,4 +96,9 @@ fieldset {
   top: 0;
   bottom: 0;
   right: 0;
+}
+
+code {
+  color: #666;
+  font-size: .9rem;
 }
