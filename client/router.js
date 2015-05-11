@@ -2,22 +2,22 @@ skip_entries = 0
 
 Router.route('/', {
   onAfterAction: function () {
-    Router.go('journal', {skip: 0})
+    Router.go('journal', {}, {hash: 0})
   }
-})
-
-Router.route('/journal/:skip', {
-  name: 'journal',
-  template: 'journal',
-  onBeforeAction: function () {
-    var self = this
-    skip_entries = parseInt(self.params.skip)
-    self.next()
-  },
 })
 
 Router.route('/about', {
   name: 'about',
+})
+
+Router.route('/journal', {
+  name: 'journal',
+  template: 'journal',
+  onBeforeAction: function () {
+    var self = this
+    skip_entries = parseInt(self.params.hash) || 0
+    self.next()
+  }
 })
 
 Router.route('/journal/new', {

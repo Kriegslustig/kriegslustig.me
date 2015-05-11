@@ -22,11 +22,10 @@ createAnchor = function (url, label, classes) {
 }
 
 linkToJournal = function (new_skip, label) {
-  return createAnchor('journal/' + new_skip, label)
+  return createAnchor('journal#' + new_skip, label)
 }
 
 renderNextLink = function (entryCount, skip, limit) {
-  console.log(skip, limit)
   if((skip + limit) > entryCount) return ''
   skip_entries = skip + limit
   return linkToJournal(skip_entries, 'next')
