@@ -20,3 +20,9 @@ Template.journal.onRendered(function () {
     pager.innerHTML += renderNextLink(entryCount, skip, limit)
   })
 })
+
+Template.journal.events({
+  'click .pager': function () {
+    scrollTo(0, 0)
+  }
+})
