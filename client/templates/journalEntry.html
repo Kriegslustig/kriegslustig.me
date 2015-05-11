@@ -1,0 +1,11 @@
+<template name="journalEntry">
+  {{ #with entry }}
+    <main class="post">
+      <h1>{{ title }}</h1>
+      {{{ htmlBody }}}
+      {{ #if currentUser }}
+        <a href="{{ urlFor 'editJournalEntry' }}">Edit</a>
+      {{ /if }}
+    </main>
+  {{ /with }}
+</template>
