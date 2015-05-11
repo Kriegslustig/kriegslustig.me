@@ -1,7 +1,7 @@
 Template.new_journal_entry.events({
   'click input[name=new_entry]': function (e, templ) {
     _templ = templ
-    var wrappingForm = templ.$('form')[0]
+    var wrappingForm = templ.find('form')
     e.preventDefault()
     Journal_entries.insert({
         title: wrappingForm.querySelector('input[type=text]').value,

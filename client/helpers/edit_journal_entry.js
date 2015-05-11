@@ -5,7 +5,7 @@ Template.edit_journal_entry.onCreated(function () {
 
 Template.edit_journal_entry.events({
   'click input[name=edit_entry]': function (e, templ) {
-    var wrappingForm = templ.$('form')[0]
+    var wrappingForm = templ.find('form')
     e.preventDefault()
     Journal_entries.update(
       wrappingForm.getAttribute('data-id'),

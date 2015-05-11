@@ -1,5 +1,19 @@
+skip_entries = 0
+
 Router.route('/', {
+  onAfterAction: function () {
+    Router.go('journal', {skip: 0})
+  }
+})
+
+Router.route('/journal/:skip', {
   name: 'journal',
+  template: 'journal',
+  onBeforeAction: function () {
+    var self = this
+    skip_entries = parseInt(self.params.skip)
+    self.next()
+  }
 })
 
 Router.route('/about', {
@@ -16,7 +30,7 @@ Router.route('/journal/:title', {
   template: 'journal_entry',
   data: function () {
     var self = this
-    return {title: self.params.title} 
+    return {title: self.params.title}
   }
 })
 
@@ -25,7 +39,7 @@ Router.route('/journal/:title/edit', {
   template: 'edit_journal_entry',
   data: function () {
     var self = this
-    return {title: self.params.title} 
+    return {title: self.params.title}
   }
 })
 
