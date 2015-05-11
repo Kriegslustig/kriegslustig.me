@@ -1,8 +1,9 @@
-skip_entries = 0
+Session.setDefault('skip_entries', 0)
+Session.setDefault('entryCount', 0)
 
 Router.route('/', {
   onAfterAction: function () {
-    Router.go('journal', {}, {hash: 0})
+    Router.go('journal', {}, {query: 'skip=0'})
   }
 })
 
@@ -13,10 +14,9 @@ Router.route('/about', {
 Router.route('/journal', {
   name: 'journal',
   template: 'journal',
-  onBeforeAction: function () {
-    var self = this
-    skip_entries = parseInt(self.params.hash) || 0
-    self.next()
+  onAfterAction: function () {
+    Session.set('skip_entries', parseInt(this.params.query.skip) || 0)
+    console.log('onAfterAction')
   }
 })
 

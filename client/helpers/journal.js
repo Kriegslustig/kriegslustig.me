@@ -1,6 +1,8 @@
 Template.journal.onCreated(function () {
   var self = this
-  self.subscribe('journal_entries', get_setting(10, 'public', 'posts_per_page'), skip_entries)
+  Tracker.autorun(function () {
+    self.subscribe('journal_entries', get_setting(10, 'public', 'posts_per_page'), Session.get('skip_entries'))
+  })
 })
 
 Template.journal.helpers({
@@ -13,11 +15,12 @@ Template.journal.onRendered(function () {
   var self = this
   var pager = self.find('.pager')
   var limit = get_setting(10, 'public', 'posts_per_page')
-  var skip = skip_entries
-  Meteor.call('getEntryCount', function (err, entryCount) {
+  Meteor.call('getEntryCount', function (err, currEntryCount) {
     if(err) return
-    pager.innerHTML = renderPrevLink(skip, limit)
-    pager.innerHTML += renderNextLink(entryCount, skip, limit)
+    Session.set('entryCount', currEntryCount)
+    Tracker.autorun(function () {
+      createPager(pager, currEntryCount, Session.get('skip_entries'), limit)
+    })
   })
 })
 

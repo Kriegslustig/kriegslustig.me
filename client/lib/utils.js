@@ -22,17 +22,23 @@ createAnchor = function (url, label, classes) {
 }
 
 linkToJournal = function (new_skip, label) {
-  return createAnchor('journal#' + new_skip, label)
+  return createAnchor('journal?skip=' + new_skip, label)
 }
 
-renderNextLink = function (entryCount, skip, limit) {
-  if((skip + limit) > entryCount) return ''
-  skip_entries = skip + limit
-  return linkToJournal(skip_entries, 'next')
+renderNextLink = function (currEntryCount, skip, limit) {
+  if((skip + limit) > currEntryCount) return ''
+  var new_skip = skip + limit
+  return linkToJournal(new_skip, 'next')
 }
 
 renderPrevLink = function (skip, limit) {
   if(skip < 1) return ''
-    skip_entries = (skip - limit) > 0 ? skip - limit : 0
-  return linkToJournal(skip_entries, 'prev')
+  var new_skip = (skip - limit) > 0 ? skip - limit : 0
+  return linkToJournal(new_skip, 'prev')
+}
+
+createPager = function (parentNode, currEntryCount, skip, limit) {
+  parentNode.innerHTML = renderPrevLink(skip, limit)
+  parentNode.innerHTML += renderNextLink(currEntryCount, skip, limit)
+  return false
 }
