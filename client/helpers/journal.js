@@ -22,7 +22,7 @@ Template.journal.onRendered(function () {
 })
 
 Template.journal.events({
-  'click .pager': function () {
+  'click .pager > a': function () {
     scrollTo(0, 0)
   }
 })
