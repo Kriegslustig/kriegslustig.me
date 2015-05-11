@@ -1,5 +1,5 @@
 Template.registerHelper('entry', function () {
-    return Journal_entries.findOne()
+    return JournalEntries.findOne()
 })
 
 Template.registerHelper('checked', function (value) {

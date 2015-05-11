@@ -1,4 +1,4 @@
-Meteor.publish('journal_entries', function (limit, skip) {
+Meteor.publish('journalEntries', function (limit, skip) {
   var filter = {}
   var options = {
     fields: {
@@ -12,13 +12,13 @@ Meteor.publish('journal_entries', function (limit, skip) {
   if(limit) options.limit = limit
   if(skip) options.skip = skip
   if(!this.userId) filter.published = true
-  return Journal_entries.find(filter, options)
+  return JournalEntries.find(filter, options)
 })
 
-Meteor.publish('journal_entry', function (title) {
-  return Journal_entries.find({title: title})
+Meteor.publish('journalEntry', function (title) {
+  return JournalEntries.find({title: title})
 })
 
-Meteor.publish('all_users', function () {
+Meteor.publish('allUsers', function () {
   return Meteor.users.find()
 })

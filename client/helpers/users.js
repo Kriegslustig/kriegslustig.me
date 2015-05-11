@@ -7,7 +7,7 @@ Template.users.helpers({
 })
 
 Template.users.onCreated(function () {
-  this.subscribe('all_users')
+  this.subscribe('allUsers')
 })
 
 Template.users.events({
@@ -18,12 +18,12 @@ Template.users.events({
     e.preventDefault()
     if(password.length > 0) {
       Meteor.call('setPassword', thisUserId, password, function (err) {
-        if(!err) return green_flash()
+        if(!err) return greenFlash()
         console.log('Fail')
-        red_flash()
+        redFlash()
       })
     } else {
-      red_flash()
+      redFlash()
     }
     return false
   }

@@ -1,6 +1,6 @@
 {
   "public": {
-    "teaser_length": 400,
-    "posts_per_page": 5
+    "teaserLength": 400,
+    "postsPerPage": 5
   }
 }

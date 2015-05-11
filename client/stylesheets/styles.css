@@ -89,7 +89,7 @@ fieldset {
   background-color: hsl(0, 90%, 85%);
 }
 
-.green_flash {
+.greenFlash {
   position: absolute;
   z-index: 1000;
   left: 0;

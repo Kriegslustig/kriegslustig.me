@@ -1,4 +1,4 @@
-<template name="new_journal_entry">
+<template name="newJournalEntry">
     <main>
       {{ #if currentUser }}
         <form data-id="{{ _id }}" class="post">
@@ -12,7 +12,7 @@
           <input type="submit" name="new_entry" class="submit">
         </form>
       {{ else }}
-        {{ > login_form }}
+        {{ > loginForm }}
       {{ /if }}
     </main>
 </template>

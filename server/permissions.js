@@ -1,4 +1,4 @@
-Journal_entries.allow({
+JournalEntries.allow({
   insert: function () {
     return !!Meteor.userId()
   },

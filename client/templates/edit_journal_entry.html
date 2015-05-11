@@ -1,10 +1,10 @@
-<template name="edit_journal_entry">
+<template name="editJournalEntry">
   <main>
     {{ #if currentUser }}
       {{ #with entry }}
         <form data-id="{{ _id }}" class="post">
           <input type="text" value="{{ title }}" class="title_input">
-          <textarea>{{ md_body }}</textarea>
+          <textarea>{{ mdBody }}</textarea>
           <input type="text" name="tags" class="tags" placeholder="tag, tag" value="{{ join tags ", " }}">
           <fieldset>
             <label>published:</label>
@@ -14,7 +14,7 @@
         </form>
       {{ /with }}
     {{ else }}
-      {{ > login_form }}
+      {{ > loginForm }}
     {{ /if }}
   </main>
 </template>

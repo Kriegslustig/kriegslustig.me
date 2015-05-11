@@ -1,4 +1,4 @@
-Template.journal_entry.onCreated(function () {
+Template.journalEntry.onCreated(function () {
   var self = this
-  self.subscribe('journal_entry', decodeURIComponent(self.data.title))
+  self.subscribe('journalEntry', decodeURIComponent(self.data.title))
 })

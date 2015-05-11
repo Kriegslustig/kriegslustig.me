@@ -1,24 +1,24 @@
-Template.edit_journal_entry.onCreated(function () {
+Template.editJournalEntry.onCreated(function () {
   var self = this
-  self.subscribe('journal_entry', decodeURIComponent(self.data.title))
+  self.subscribe('journalEntry', decodeURIComponent(self.data.title))
 })
 
-Template.edit_journal_entry.events({
+Template.editJournalEntry.events({
   'click input[name=edit_entry]': function (e, templ) {
     var wrappingForm = templ.find('form')
     e.preventDefault()
-    Journal_entries.update(
+    JournalEntries.update(
       wrappingForm.getAttribute('data-id'),
       {
         $set: {
           title: wrappingForm.querySelector('input[type=text]').value,
-          md_body: wrappingForm.querySelector('textarea').value,
+          mdBody: wrappingForm.querySelector('textarea').value,
         published: wrappingForm.querySelector('.published').checked,
         tags: wrappingForm.querySelector('.tags').value
         }
       },
       function (err) {
-        if(!err) green_flash()
+        if(!err) greenFlash()
       }
     )
     return false
