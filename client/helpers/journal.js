@@ -15,7 +15,7 @@ Template.journal.onRendered(function () {
   var limit = get_setting(10, 'public', 'posts_per_page')
   Meteor.call('getEntryCount', function (err, entryCount) {
     if(err) return
-    pager.innerHTML = renderNextLink(entryCount, skip_entries, limit)
     pager.innerHTML += renderPrevLink(skip_entries, limit)
+    pager.innerHTML = renderNextLink(entryCount, skip_entries, limit)
   })
 })
