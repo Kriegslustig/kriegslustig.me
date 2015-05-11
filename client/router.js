@@ -13,7 +13,7 @@ Router.route('/journal/:skip', {
     var self = this
     skip_entries = parseInt(self.params.skip)
     self.next()
-  }
+  },
 })
 
 Router.route('/about', {

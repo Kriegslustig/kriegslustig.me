@@ -16,3 +16,24 @@ green_flash = function () {
 red_flash = function () {
   flash("hsl(10, 80%, 90%)")
 }
+
+createAnchor = function (url, label, classes) {
+  return '<a href="' + Meteor.absoluteUrl(url) + '" class="' + (classes ? classes : '') + '">' + label + '</a>'
+}
+
+linkToJournal = function (new_skip, label) {
+  return createAnchor('journal/' + new_skip, label)
+}
+
+renderNextLink = function (entryCount, skip, limit) {
+  console.log(skip, limit)
+  if((skip + limit) > entryCount) return ''
+  skip_entries = skip + limit
+  return linkToJournal(skip_entries, 'next')
+}
+
+renderPrevLink = function (skip, limit) {
+  if(skip < 1) return ''
+    skip_entries = (skip - limit) > 0 ? skip - limit : 0
+  return linkToJournal(skip_entries, 'prev')
+}
