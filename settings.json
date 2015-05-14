@@ -1,6 +1,6 @@
 {
   "public": {
     "teaserLength": 400,
-    "postsPerPage": 5
+    "entriesPerPage": 5
   }
 }

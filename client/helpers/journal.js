@@ -1,7 +1,7 @@
 Template.journal.onCreated(function () {
   var self = this
   Tracker.autorun(function () {
-    self.subscribe('journalEntries', getSetting(10, 'public', 'postsPerPage'), Session.get('skipEntries'))
+    self.subscribe('journalEntries', getSetting(10, 'public', 'entriesPerPage'), Session.get('skipEntries'))
   })
 })
 
@@ -14,7 +14,7 @@ Template.journal.helpers({
 Template.journal.onRendered(function () {
   var self = this
   var pager = self.find('.pager')
-  var limit = getSetting(10, 'public', 'postsPerPage')
+  var limit = getSetting(10, 'public', 'entriesPerPage')
   Meteor.call('getEntryCount', function (err, currEntryCount) {
     if(err) return
     Session.set('entryCount', currEntryCount)

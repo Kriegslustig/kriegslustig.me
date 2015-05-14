@@ -28,16 +28,16 @@ h1 {
   margin-top: 1rem;
 }
 
-.post {
+.entry {
   margin-bottom: 3rem;
   line-height: 1.5em;
 }
 
-.post--unpublished {
+.entry--unpublished {
   background-color: hsl(0, 90%, 85%);
 }
 
-.post--teaser {
+.entry--teaser {
   margin-top: 1rem;
 }
 
