@@ -1,9 +1,10 @@
 <template name="journal">
   <main>
     {{ #each journalEntries }}
-      <article class="post{{ #if not published }} post--unpublished{{ /if }}">
+      <article class="post post--teaser {{ #if not published }} post--unpublished{{ /if }}">
         <a href="{{ urlFor 'journalEntry' }}" class="block_link">
           <h2>{{ title }}</h2>
+          <p class="date">{{ formatDate createdAt }}</p>
           {{{ teaser }}}
           <a href="{{ urlFor 'journalEntry' }}">Read_more</a>
         </a>

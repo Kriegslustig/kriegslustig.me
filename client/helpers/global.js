@@ -13,3 +13,7 @@ Template.registerHelper('not', function (value) {
 Template.registerHelper('join', function (someArray, delimiter) {
   return typeof someArray == "object" ? someArray.join(delimiter) : null
 })
+
+Template.registerHelper('formatDate', function (unixTimestamp) {
+  return (new Date(unixTimestamp)).toString()
+})
