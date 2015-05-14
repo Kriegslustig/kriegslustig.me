@@ -7,7 +7,7 @@ Meteor.publish('journalEntries', function (limit, skip) {
       'published': 1,
       'createdAt': 1
     },
-    sort: [['createdAt', 'desc']]
+    sort: [['published', 'asc'], ['createdAt', 'desc']]
   }
   if(limit) options.limit = limit
   if(skip) options.skip = skip
