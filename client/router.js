@@ -41,3 +41,8 @@ Router.route('/journal/:title/edit', {
 Router.route('/users', {
   name: 'users'
 })
+
+
+Router.route('/login', {
+  name: 'login'
+})

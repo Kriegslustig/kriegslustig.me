@@ -1,0 +1,10 @@
+<template name="login">
+  <main>
+    <h1>Login</h1>
+    {{ #if currentUser }}
+      <h2>U already logged in!!! :OO</h2>
+    {{ else }}
+      {{ > loginForm }}
+    {{ /if }}
+  </main>
+</template>
