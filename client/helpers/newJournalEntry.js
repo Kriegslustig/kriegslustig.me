@@ -7,7 +7,6 @@ Template.newJournalEntry.events({
         mdBody: wrappingForm.querySelector('textarea').value,
         published: wrappingForm.querySelector('.published').checked,
         tags: wrappingForm.querySelector('.tags').value,
-        createdAt: (new Date()).getTime()
     }, function (err, _id) {
       if(_id) Router.go('journal')
       redFlash()
