@@ -13,7 +13,8 @@ Template.newJournalEntry.events({
         Router.go('journalEntry', {title: encodeURIComponent(title)})
         return greenFlash()
       }
-      return redFlash()
+      redFlash()
+      return markFailed(wrappingForm, err.invalidKeys)
     })
     return false
   }

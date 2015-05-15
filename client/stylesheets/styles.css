@@ -130,3 +130,7 @@ pre {
   padding: 0;
   margin: 0;
 }
+
+.invalid {
+  background-color: hsl(10, 80%, 90%);
+}

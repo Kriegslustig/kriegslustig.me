@@ -42,3 +42,47 @@ createPager = function (parentNode, currEntryCount, skip, limit) {
   parentNode.innerHTML += renderNextLink(currEntryCount, skip, limit)
   return false
 }
+
+markFailed = function (parentNode, invalidFields) {
+  _.each(parentNode.children, classRemover('invalid'))
+  _.each(invalidFields, extractorFromObject('name', classAdderToElemName(parentNode, 'invalid')))
+}
+
+classAdderToElemName = function (parentNode, thisClass) {
+  return function (elementName) {
+    var element
+    if(element = parentNode.querySelector('[name=' + elementName + ']')) {
+      element.className += (' ' + thisClass)
+      return element
+    } else {
+      return null
+    }
+  }
+}
+
+extractorFromObject = function (key, someFun) {
+  return function (someObject) {
+    return someFun(someObject[key])
+  }
+}
+
+addClass = function (element, thisClass) {
+  if(!hasClass(element, thisClass)) element.className += ' ' + thisClass
+  return element
+}
+
+removeClass = function (element, thisClass) {
+  if(!hasClass(element, thisClass)) return element
+  element.className = element.className.split(thisClass).join('')
+  return element
+}
+
+classRemover = function (thisClass) {
+  return function (element) {
+    return removeClass(element, thisClass)
+  }
+}
+
+hasClass = function (element, thisClass) {
+  return (element.className.indexOf(thisClass) > -1)
+}
