@@ -1,48 +1,58 @@
-Session.setDefault('skipEntries', 0)
-Session.setDefault('entryCount', 0)
-
-Router.route('/', {
-  onAfterAction: function () {
-    Router.go('journal', {}, {query: 'skip=0'})
-  }
+IsoRouter.Route.exit(() => {
+  document.getElementsByTagName('main')[0].innerHTML = ''
 })
 
-Router.route('/about', {
-  name: 'about',
-})
+IsoRouter.route('/')
+  .action(() => {
+    IsoRouter.navigate('/journal')
+  })
 
-Router.route('/journal', {
-  name: 'journal',
-  onAfterAction: function () {
-    Session.set('skipEntries', parseInt(this.params.query.skip) || 0)
-  }
-})
+IsoRouter.route('/about')
+  .action(() => {
+    render(Template.about)
+  })
 
-Router.route('/journal/new', {
-  name: 'newJournalEntry',
-})
+IsoRouter.route('/journal')
+  .action(() => {
+    render(Template.journal)
+  })
 
-Router.route('/journal/:title', {
-  name: 'journalEntry',
-  data: function () {
-    var self = this
-    return {title: self.params.title}
-  }
-})
+IsoRouter.route('/journal/new')
+  .action(() => {
+    render(Template.newJournalEntry)
+  })
 
-Router.route('/journal/:title/edit', {
-  name: 'editJournalEntry',
-  data: function () {
-    var self = this
-    return {title: self.params.title}
-  }
-})
+IsoRouter.route('/journal/:title')
+  .action(function (params) {
+    render(
+      Template.journalEntry,
+      {title: decodeURIComponent(params.title)}
+    )
+  })
 
-Router.route('/users', {
-  name: 'users'
-})
+IsoRouter.route('/journal/:title/edit')
+  .action(function (params) {
+    render(
+      Template.editJournalEntry,
+      {title: decodeURIComponent(params.title)}
+    )
+  })
+
+IsoRouter.route('/login')
+  .action(() => {
+    render(Template.login)
+  })
+
+IsoRouter.route('/users')
+  .action(() => {
+    render(Template.users)
+  })
 
 
-Router.route('/login', {
-  name: 'login'
-})
+function render (template, data = {}) {
+  Blaze.renderWithData(
+    template,
+    data,
+    document.getElementsByTagName('main')[0]
+  )
+}

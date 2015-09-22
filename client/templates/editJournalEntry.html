@@ -1,20 +1,18 @@
 <template name="editJournalEntry">
-  <main>
-    {{ #if currentUser }}
-      {{ #with entry }}
-        <form data-id="{{ _id }}" class="entry">
-          <input type="text" value="{{ title }}" class="title_input">
-          <textarea>{{ mdBody }}</textarea>
-          <input type="text" name="tags" class="tags" placeholder="tag, tag" value="{{ join tags ", " }}">
-          <fieldset>
-            <label>published:</label>
-            <input type="checkbox" class="published" checked="{{ checked published }}">
-          </fieldset>
-          <input type="submit" name="edit_entry" class="submit">
-        </form>
-      {{ /with }}
-    {{ else }}
-      {{ > loginForm }}
-    {{ /if }}
-  </main>
+  {{ #if currentUser }}
+    {{ #with entry }}
+      <form data-id="{{ _id }}" class="entry">
+        <input type="text" value="{{ title }}" class="title_input">
+        <textarea>{{ mdBody }}</textarea>
+        <input type="text" name="tags" class="tags" placeholder="tag, tag" value="{{ join tags ", " }}">
+        <fieldset>
+          <label>published:</label>
+          <input type="checkbox" class="published" checked="{{ checked published }}">
+        </fieldset>
+        <input type="submit" name="edit_entry" class="submit">
+      </form>
+    {{ /with }}
+  {{ else }}
+    {{ > loginForm }}
+  {{ /if }}
 </template>

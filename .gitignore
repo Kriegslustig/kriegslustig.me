@@ -5,6 +5,6 @@
 .meteor/local
 .meteor/meteorite
 
-packages
+packages/
 
 .*.swp

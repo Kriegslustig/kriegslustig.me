@@ -1,18 +1,18 @@
-Meteor.publish('journalEntries', function (limit, skip) {
-  var filter = {}
-  var options = {
-    fields: {
-      'title': 1,
-      'teaser': 1,
-      'published': 1,
-      'createdAt': 1
-    },
-    sort: [['published', 'asc'], ['createdAt', 'desc']]
-  }
-  if(limit) options.limit = limit
-  if(skip) options.skip = skip
-  if(!this.userId) filter.published = true
-  return JournalEntries.find(filter, options)
+Meteor.publish('journalEntries', function () {
+  return JournalEntries.find(
+    this.userId
+      ? {}
+      : { published: true },
+    {
+      fields: {
+        'title': 1,
+        'teaser': 1,
+        'published': 1,
+        'createdAt': 1
+      },
+      sort: [['published', 'asc'], ['createdAt', 'desc']]
+    }
+  )
 })
 
 Meteor.publish('journalEntry', function (title) {

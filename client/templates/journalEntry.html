@@ -1,12 +1,12 @@
 <template name="journalEntry">
   {{ #with entry }}
-    <main class="entry">
+    <article class="entry">
       <h1>{{ title }}</h1>
       <p class="date">{{ formatDate createdAt }}</p>
       {{{ htmlBody }}}
       {{ #if currentUser }}
         <a href="{{ urlFor 'editJournalEntry' }}">Edit</a>
       {{ /if }}
-    </main>
+    </article>
   {{ /with }}
 </template>

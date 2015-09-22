@@ -17,3 +17,5 @@ Template.registerHelper('join', function (someArray, delimiter) {
 Template.registerHelper('formatDate', function (unixTimestamp) {
   return (new Date(unixTimestamp)).toString()
 })
+
+Template.registerHelper('esc', encodeURIComponent)

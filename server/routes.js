@@ -1,9 +1,9 @@
-Router.route('/json/journal', function () {
-  var self = this
-  self.response.end(JSON.stringify(JournalEntries.find({published: true}).fetch()))
-}, {where: 'server'})
+IsoRouter.route('/json/journal')
+  .action(function (params) {
+    this.res.end(JSON.stringify(JournalEntries.find({published: true}).fetch()))
+  })
 
-Router.route('/json/journal/:title', function () {
-  var self = this
-  self.response.end(JSON.stringify(JournalEntries.findOne({title: self.params.title})))
-}, {where: 'server'})
+IsoRouter.route('/json/journal/:title')
+  .action(function (params) {
+    this.res.end(JSON.stringify(JournalEntries.findOne({title: params.title})))
+  })
