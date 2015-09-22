@@ -10,7 +10,7 @@ MAINTAINER Kriegslustig
 RUN apt-get upgrade && \
     apt-get update && \
     apt-get install -qqy curl python make gcc g++ openssl && \
-    curl -sL https://deb.nodesource.com/setup | sudo bash -
+    curl -sL https://deb.nodesource.com/setup_0.10 | sudo bash -
 
 RUN apt-get install -yqq nodejs
 
